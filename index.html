@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Development Area</title>
+	<!-- ALL CSS FILES  -->
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/style.css">
+	<link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+	
+	
+ <section class="header bg-light py-5">
+	 <div class="container">
+		 <div class="row">
+			 <div class="col-md-12 px-5">
+				<h3 v-bind:style="'color:'+color+';' + 'font-size:'+size+'px'+';' + 'margin-left:'+marginL+'px'+';' + 'margin-right:'+marginR+'px'+';' + 'margin-top:'+marginT+'px'+';' + 'margin-bottom:'+marginB+'px'+';' + 'padding-left:'+paddingL+'px'+';' + 'padding-right:'+paddingR+'px'+';' + 'padding-top:'+paddingT+'px'+';' + 'padding-bottom:'+paddingB+'px'+';' + 'font-family:'+ff+';' + 'background-color:'+bg+';'" v-bind:class="'text-'+align">{{ title }}</h3>
+
+				<a :class="'btn'+' '+'btn-'+btn.color" :href="'https://'+btn.link">{{ btn.title }}</a>
+				<hr>
+				
+				<h5>Paragraph / Heading</h5>
+				<input class="mb-2 form-control" v-model="title" type="text">
+				<br>
+				<input v-model="align" type="radio" id="left" value="left"> <label for="left">Left</label>
+				<input v-model="align" type="radio" id="right" value="right"> <label for="right">Right</label>
+				<input v-model="align" type="radio" id="center" value="center"> <label for="center">Center</label>
+
+				<input v-model="color" type="color" id="color"> <label for="color">color</label>
+				<input v-model="bg" type="color" id="bgcolor"> <label for="bgcolor">Background Color</label>
+				<input v-model="size" type="range" id="size"> <label for="size">Font size</label>
+				<select v-model="ff" name="" id="">
+					<option value="">-Select-</option>
+					<option value="Edwardian Script ITC">Edwardian Script ITC</option>
+					<option value="Impact">Impact</option>
+					<option value="Magneto">Magneto</option>
+					<option value="bradley Hand ITC">bradley Hand ITC</option>
+				</select>
+				<!-- margin -->
+				<br>
+				<h5>Margin</h5>
+				<input v-model="marginL" type="range" id="marginL"> <label for="marginL">Margin Left</label>
+				<input v-model="marginR" type="range" id="marginR"> <label for="marginR">Margin Right</label>
+				<input v-model="marginT" type="range" id="marginT"> <label for="marginT">Margin Top</label>
+				<input v-model="marginB" type="range" id="marginB"> <label for="marginB">Margin Bottom</label>
+
+				<!-- Padding -->
+				<br>
+				<h5>Padding</h5>
+				<input v-model="paddingL" type="range" id="paddingL"> <label for="paddingL">Padding Left</label>
+				<input v-model="paddingR" type="range" id="paddingR"> <label for="paddingR">Padding Right</label>
+				<input v-model="paddingT" type="range" id="paddingT"> <label for="paddingT">Padding Top</label>
+				<input v-model="paddingB" type="range" id="paddingB"> <label for="paddingB">Padding Bottom</label>
+
+				<br>
+				<h5>Button</h5>
+				<small>Button Name</small>
+				<input class="mb-2" v-model="btn.title" type="text">
+				<label class="ml-2" for="colori">Info</label>
+				<input class="mb-2" v-model="btn.color" type="radio" id="colori" value="info">
+
+				<label class="ml-2" for="colorp">Primary</label>
+				<input class="mb-2" v-model="btn.color" type="radio" id="colorp" value="primary">
+
+				<label class="ml-2" for="colorw">Warning</label>
+				<input class="mb-2" v-model="btn.color" type="radio" id="colorw" value="warning">
+
+				<label class="ml-2" for="colors">Secondary</label>
+				<input class="mb-2" v-model="btn.color" type="radio" id="colors" value="secondary">
+
+				<label class="ml-2" for="colord">Danger</label>
+				<input class="mb-2" v-model="btn.color" type="radio" id="colord" value="danger">
+
+				<label class="ml-2" for="colorsu">Success</label>
+				<input class="mb-2" v-model="btn.color" type="radio" id="colorsu" value="success">
+
+				<label class="ml-2" for="colorlight">Light</label>
+				<input class="mb-2" v-model="btn.color" type="radio" id="colorlight" value="light">
+
+				<label class="ml-2" for="dark">Dark</label>
+				<input class="mb-2" v-model="btn.color" type="radio" id="dark" value="dark">
+
+				<label class="ml-2" for="link">link</label>
+				<input class="mb-2" v-model="btn.color" type="radio" id="link" value="link">
+				<!-- Button Link -->
+
+				<br>
+				<small class="mr-2">Button Link</small>
+				<input class="mb-2" v-model="btn.link" type="text">
+				
+			 </div>
+		 </div>
+	 </div>
+ </section>
+
+
+
+
+
+
+
+	<!-- JS FILES  -->
+	<script src="assets/js/jquery-3.4.1.min.js"></script>
+	<script src="assets/js/popper.min.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
+
+	<!-- Vue Js load -->
+	<script src="assets/js/vue.min.js"></script>
+	<script src="assets/js/vue-router.js"></script>
+
+	<script> 
+		let header = new Vue({
+			el: '.header',
+			data: {
+				title: null,
+				align:null,
+				color:null,
+				bg:null,
+				size:null,
+				marginL:null,
+				marginR:null,
+				marginT:null,
+				marginB:null,
+				paddingL:null,
+				paddingR:null,
+				paddingT:null,
+				paddingB:null,
+				ff:'candara',
+				btn: {
+					title: null,
+					color:null,
+					link:null,
+				}
+			}
+		});
+
+		Vue.config.devtools = true
+	</script>
+
+</body>
+</html>
